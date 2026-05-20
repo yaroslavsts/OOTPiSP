@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <Target Name="CopyToPluginArtifacts" AfterTargets="Build">
     <PropertyGroup>
-      <PluginOutputDir>$(MSBuildThisFileDirectory)../../artifacts/plugins/</PluginOutputDir>
+      <PluginOutputDir>$(MSBuildThisFileDirectory)../../../artifacts/plugins/</PluginOutputDir>
     </PropertyGroup>
     <MakeDir Directories="$(PluginOutputDir)" />
     <ItemGroup>

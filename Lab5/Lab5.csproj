@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Plugins/**" />
+    <EmbeddedResource Remove="Plugins/**" />
+    <None Remove="Plugins/**" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../Shared/Common.csproj" />
+    <ProjectReference Include="Plugins/Storage.Checksum/Storage.Checksum.csproj" ReferenceOutputAssembly="false" PrivateAssets="all" />
+    <ProjectReference Include="Plugins/Storage.GZip/Storage.GZip.csproj" ReferenceOutputAssembly="false" PrivateAssets="all" />
+  </ItemGroup>
+</Project>

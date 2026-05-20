@@ -1,9 +1,0 @@
-<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-  </PropertyGroup>
-  <ItemGroup>
-    <ProjectReference Include="../Common/Common.csproj" />
-    <ProjectReference Include="../../plugins/Entity.Cyclist/Entity.Cyclist.csproj" ReferenceOutputAssembly="false" PrivateAssets="all" />
-  </ItemGroup>
-</Project>

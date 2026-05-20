@@ -3,6 +3,6 @@
     <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="../Common/Common.csproj" />
+    <ProjectReference Include="../Shared/Common.csproj" />
   </ItemGroup>
 </Project>

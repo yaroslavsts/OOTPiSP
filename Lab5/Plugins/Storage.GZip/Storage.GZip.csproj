@@ -1,10 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
-    <ProjectReference Include="../../src/Common/Common.csproj" />
+    <ProjectReference Include="../../../Shared/Common.csproj" />
   </ItemGroup>
   <Target Name="CopyToPluginArtifacts" AfterTargets="Build">
     <PropertyGroup>
-      <PluginOutputDir>$(MSBuildThisFileDirectory)../../artifacts/plugins/</PluginOutputDir>
+      <PluginOutputDir>$(MSBuildThisFileDirectory)../../../artifacts/plugins/</PluginOutputDir>
     </PropertyGroup>
     <MakeDir Directories="$(PluginOutputDir)" />
     <ItemGroup>
