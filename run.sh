@@ -16,9 +16,13 @@ case "$lab" in
   lab5|Lab5) main_class="lab5.Main" ;;
   lab6|Lab6) main_class="lab6.Main" ;;
   *)
-    echo "Usage: ./run.sh lab1|lab2|lab3|lab4|lab5|lab6 [--demo]"
+    echo "Usage: ./run.sh lab1|lab2|lab3|lab4|lab5|lab6 [arguments]"
     exit 1
     ;;
 esac
+
+if [ "$main_class" = "lab6.Main" ] && [ ! -f artifacts/plugins/lab6/triangle-storage-adapter.jar ]; then
+  ./build.sh
+fi
 
 java -cp build/classes "$main_class" "$@"

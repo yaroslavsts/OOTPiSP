@@ -1,7 +1,9 @@
 package shared;
 
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Base64;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,12 +24,14 @@ public class StoragePipeline {
         for (String name : names) {
             data = plugins.get(name).beforeSave(data);
         }
+        data = Base64.getEncoder().encodeToString(data).getBytes(StandardCharsets.UTF_8);
         Files.createDirectories(file.toAbsolutePath().getParent());
         Files.write(file, data);
     }
 
     public List<Athlete> load(Path file, String... names) throws Exception {
-        byte[] data = Files.readAllBytes(file);
+        String text = new String(Files.readAllBytes(file), StandardCharsets.UTF_8).trim();
+        byte[] data = Base64.getDecoder().decode(text);
         for (int i = names.length - 1; i >= 0; i--) {
             data = plugins.get(names[i]).afterLoad(data);
         }

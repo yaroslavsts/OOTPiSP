@@ -244,12 +244,6 @@ class EditorFrame extends JFrame {
 
 public class Main {
     public static void main(String[] args) {
-        if (args.length > 0 && args[0].equals("--demo")) {
-            Registry registry = Registry.basic();
-            Figure figure = registry.create("rectangle", "15 25 120 60");
-            System.out.println("Created: " + figure.getClass().getSimpleName());
-            return;
-        }
         new EditorFrame().setVisible(true);
     }
 }

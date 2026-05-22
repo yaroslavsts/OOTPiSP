@@ -28,7 +28,8 @@ build_plugin() {
 build_plugin "cyclist" "Lab4/Plugins/Entity.Cyclist/src" "artifacts/plugins/lab4/entity-cyclist.jar" "build/classes"
 build_plugin "xor" "Lab5/Plugins/Storage.XorEncryption/src" "artifacts/plugins/lab5/xor-encryption.jar" "build/classes"
 build_plugin "shift" "Lab5/Plugins/Storage.ShiftEncryption/src" "artifacts/plugins/lab5/shift-encryption.jar" "build/classes"
-build_plugin "friend" "Lab6/Plugins/Friend.LegacyBase64/src" "artifacts/plugins/lab6/friend-legacy.jar" "build/classes"
-build_plugin "adapter" "Lab6/Plugins/Adapter.LegacyBase64/src" "artifacts/plugins/lab6/friend-adapter.jar" "build/classes:artifacts/plugins/lab6/friend-legacy.jar"
+build_plugin "triangle-api" "Lab6/Plugins/Friend.TriangleApi/src" "artifacts/plugins/lab6/triangle-api.jar" "build/classes"
+build_plugin "triangle-friend" "Lab6/Plugins/Friend.Triangle/src" "artifacts/plugins/lab6/friend-triangle.jar" "build/classes:artifacts/plugins/lab6/triangle-api.jar"
+build_plugin "triangle-adapter" "Lab6/Plugins/Adapter.TriangleStorage/src" "artifacts/plugins/lab6/triangle-storage-adapter.jar" "build/classes:artifacts/plugins/lab6/triangle-api.jar:artifacts/plugins/lab6/friend-triangle.jar"
 
 echo "Build completed."

@@ -4,13 +4,11 @@ import javax.swing.BorderFactory;
 import javax.swing.AbstractButton;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
-import javax.swing.JCheckBoxMenuItem;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -54,7 +52,6 @@ public class AthleteFrame extends JFrame {
         add(leftPanel(), BorderLayout.WEST);
         add(centerPanel(note), BorderLayout.CENTER);
         add(bottomPanel(storagePlugins), BorderLayout.SOUTH);
-        addPluginMenu(storagePlugins);
 
         typeBox.addActionListener(e -> rebuildFields());
         list.addListSelectionListener(e -> fillSelectedAthlete());
@@ -122,24 +119,18 @@ public class AthleteFrame extends JFrame {
         fileButtons.add(load);
         filePanel.add(fileButtons, BorderLayout.EAST);
         panel.add(filePanel, BorderLayout.NORTH);
-        return panel;
-    }
 
-    private void addPluginMenu(List<StoragePlugin> storagePlugins) {
-        if (storagePlugins.isEmpty()) {
-            return;
+        if (!storagePlugins.isEmpty()) {
+            JPanel pluginPanel = new JPanel();
+            pluginPanel.add(new JLabel("Encryption:"));
+            for (StoragePlugin plugin : storagePlugins) {
+                JCheckBox check = new JCheckBox(plugin.name(), true);
+                pluginChecks.add(check);
+                pluginPanel.add(check);
+            }
+            panel.add(pluginPanel, BorderLayout.SOUTH);
         }
-        JMenuBar bar = new JMenuBar();
-        JMenu settings = new JMenu("Settings");
-        JMenu plugins = new JMenu("Storage plugins");
-        for (StoragePlugin plugin : storagePlugins) {
-            JCheckBoxMenuItem check = new JCheckBoxMenuItem(plugin.name(), true);
-            pluginChecks.add(check);
-            plugins.add(check);
-        }
-        settings.add(plugins);
-        bar.add(settings);
-        setJMenuBar(bar);
+        return panel;
     }
 
     private void rebuildFields() {

@@ -9,8 +9,6 @@ import java.util.List;
 
 abstract class Figure {
     abstract void draw(Graphics g);
-
-    abstract String text();
 }
 
 class LineFigure extends Figure {
@@ -25,10 +23,6 @@ class LineFigure extends Figure {
 
     void draw(Graphics g) {
         g.drawLine(x1, y1, x2, y2);
-    }
-
-    String text() {
-        return "Line(" + x1 + ", " + y1 + ", " + x2 + ", " + y2 + ")";
     }
 }
 
@@ -45,10 +39,6 @@ class RectangleFigure extends Figure {
     void draw(Graphics g) {
         g.drawRect(x, y, width, height);
     }
-
-    String text() {
-        return "Rectangle(" + x + ", " + y + ", " + width + ", " + height + ")";
-    }
 }
 
 class EllipseFigure extends Figure {
@@ -64,10 +54,6 @@ class EllipseFigure extends Figure {
     void draw(Graphics g) {
         g.drawOval(x, y, width, height);
     }
-
-    String text() {
-        return "Ellipse(" + x + ", " + y + ", " + width + ", " + height + ")";
-    }
 }
 
 class CircleFigure extends Figure {
@@ -82,10 +68,6 @@ class CircleFigure extends Figure {
     void draw(Graphics g) {
         g.drawOval(x - radius, y - radius, radius * 2, radius * 2);
     }
-
-    String text() {
-        return "Circle(" + x + ", " + y + ", " + radius + ")";
-    }
 }
 
 class TriangleFigure extends Figure {
@@ -99,10 +81,6 @@ class TriangleFigure extends Figure {
 
     void draw(Graphics g) {
         g.drawPolygon(xs, ys, 3);
-    }
-
-    String text() {
-        return "Triangle(" + xs[0] + ", " + ys[0] + ", " + xs[1] + ", " + ys[1] + ", " + xs[2] + ", " + ys[2] + ")";
     }
 }
 
@@ -121,10 +99,6 @@ class RhombusFigure extends Figure {
         int[] ys = { y - height / 2, y, y + height / 2, y };
         g.drawPolygon(xs, ys, 4);
     }
-
-    String text() {
-        return "Rhombus(" + x + ", " + y + ", " + width + ", " + height + ")";
-    }
 }
 
 class FigureList {
@@ -137,12 +111,6 @@ class FigureList {
     void draw(Graphics g) {
         for (Figure figure : figures) {
             figure.draw(g);
-        }
-    }
-
-    void print() {
-        for (Figure figure : figures) {
-            System.out.println(figure.text());
         }
     }
 }
@@ -164,10 +132,6 @@ class DrawPanel extends JPanel {
 public class Main {
     public static void main(String[] args) {
         FigureList list = sampleFigures();
-        if (args.length > 0 && args[0].equals("--demo")) {
-            list.print();
-            return;
-        }
 
         JFrame frame = new JFrame("Lab1 - Inheritance and polymorphism");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
