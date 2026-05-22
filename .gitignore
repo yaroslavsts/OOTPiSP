@@ -1,9 +1,7 @@
-bin/
-obj/
+build/
 artifacts/
+*.class
+*.jar
 .DS_Store
 .idea/
-.vscode/
-*.user
-*.suo
-*.rsuser
+out/
