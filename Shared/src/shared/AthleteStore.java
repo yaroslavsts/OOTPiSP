@@ -21,7 +21,7 @@ public class AthleteStore {
             TypeDef type = registry.get(athlete.type());
             text.append(athlete.type()).append("|").append(athlete.id);
             for (Field field : type.fields) {
-                text.append("|").append(field.name).append("=").append(field.getter.get(athlete));
+                text.append("|").append(field.name).append("=").append(field.getter.apply(athlete));
             }
             text.append("\n");
         }

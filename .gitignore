@@ -4,4 +4,5 @@ artifacts/
 *.jar
 .DS_Store
 .idea/
+*.iml
 out/

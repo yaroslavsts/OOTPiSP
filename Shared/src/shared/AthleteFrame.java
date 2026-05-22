@@ -176,7 +176,7 @@ public class AthleteFrame extends JFrame {
             }
             Map<String, String> values = values();
             for (Field field : registry.get(athlete.type()).fields) {
-                field.setter.set(athlete, values.get(field.name));
+                field.setter.accept(athlete, values.get(field.name));
             }
             list.repaint();
         } catch (Exception error) {
@@ -194,7 +194,7 @@ public class AthleteFrame extends JFrame {
         for (Field field : type.fields) {
             JTextField input = fieldInputs.get(field.name);
             if (input != null) {
-                input.setText(field.getter.get(athlete));
+                input.setText(field.getter.apply(athlete));
             }
         }
     }

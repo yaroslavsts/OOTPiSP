@@ -3,6 +3,7 @@ package shared;
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.function.Function;
 
 public class AthleteRegistry {
     private final Map<String, TypeDef> types = new LinkedHashMap<>();
@@ -41,14 +42,14 @@ public class AthleteRegistry {
         return registry;
     }
 
-    public static TypeDef person(String type, AthleteFactory factory) {
+    public static TypeDef person(String type, Function<Map<String, String>, Athlete> factory) {
         return new TypeDef(type, factory)
             .field("Name", a -> ((Person) a).name, (a, x) -> ((Person) a).name = x)
             .field("Age", a -> "" + ((Person) a).age, (a, x) -> ((Person) a).age = Integer.parseInt(x))
             .field("Gender", a -> ((Person) a).gender, (a, x) -> ((Person) a).gender = x);
     }
 
-    public static TypeDef sportsman(String type, AthleteFactory factory) {
+    public static TypeDef sportsman(String type, Function<Map<String, String>, Athlete> factory) {
         return person(type, factory)
             .field("Medals", a -> "" + ((Sportsman) a).medals, (a, x) -> ((Sportsman) a).medals = Integer.parseInt(x))
             .field("Years", a -> "" + ((Sportsman) a).yearsInSport, (a, x) -> ((Sportsman) a).yearsInSport = Integer.parseInt(x));
