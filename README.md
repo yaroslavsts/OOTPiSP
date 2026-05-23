@@ -1,6 +1,8 @@
 # OOTPiSP Labs
 
-Java Swing laboratory works for object-oriented programming, serialization, plugins, and design patterns.
+Java laboratory works for object-oriented programming, serialization, plugin architecture, and design patterns.
+
+The project is organized as a sequence of labs. Earlier labs introduce basic OOP concepts, while later labs reuse the common model and extend it with serialization, plugins, encryption, and pattern-based adaptation.
 
 ## Structure
 
@@ -12,27 +14,6 @@ Lab4   Entity plugins loaded from external JAR files.
 Lab5   Storage plugins for selectable encryption strategies.
 Lab6   Design patterns: Adapter, Strategy, and Factory Method.
 Shared Common model, UI, registry, storage, plugin loader, and pipeline code.
-```
-
-## Build
-
-Run from the repository root:
-
-```bash
-./build.sh
-```
-
-The build script compiles all labs and creates plugin JAR files under `artifacts/plugins`.
-
-## Run
-
-```bash
-./run.sh lab1
-./run.sh lab2
-./run.sh lab3
-./run.sh lab4
-./run.sh lab5
-./run.sh lab6
 ```
 
 ## Lab 6
